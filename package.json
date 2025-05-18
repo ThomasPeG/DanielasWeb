@@ -1,0 +1,20 @@
+{
+  "name": "danielas-web",
+  "version": "1.0.0",
+  "description": "Página web especial para Nikol Daniela Alvarez",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server",
+    "dev": "live-server --port=3000 --open=index.html"
+  },
+  "keywords": [
+    "stitch",
+    "personal-website",
+    "love"
+  ],
+  "author": "Manolo",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
