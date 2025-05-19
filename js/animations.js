@@ -123,19 +123,22 @@ function handleVideoVisibility() {
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            // Obtener el video del entry
             const video = entry.target;
             
             if (entry.isIntersecting) {
-                // El video está visible en la pantalla
-                video.play();
+                // Intentamos reproducir el video y manejamos cualquier error
+                const playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log("Error reproduciendo el video:", error);
+                    });
+                }
             } else {
-                // El video no está visible en la pantalla
                 video.pause();
             }
         });
     }, {
-        threshold: 0.3 // El video se reproducirá cuando al menos el 30% sea visible
+        threshold: 0.1 // Reducimos el umbral para una activación más temprana
     });
 
     // Observar todos los videos

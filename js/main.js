@@ -78,3 +78,37 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Función para manejar la pantalla de carga
+document.addEventListener('DOMContentLoaded', function() {
+    const loadingScreen = document.getElementById('loading-screen');
+    
+    // Esperar a que todas las imágenes y videos se carguen
+    Promise.all([
+        // Esperar a que se carguen todas las imágenes
+        ...Array.from(document.images).map(img => {
+            if (img.complete) return Promise.resolve();
+            return new Promise(resolve => {
+                img.addEventListener('load', resolve);
+                img.addEventListener('error', resolve); // Manejar errores también
+            });
+        }),
+        // Esperar a que se carguen todos los videos
+        ...Array.from(document.getElementsByTagName('video')).map(video => {
+            if (video.readyState >= 3) return Promise.resolve();
+            return new Promise(resolve => {
+                video.addEventListener('canplay', resolve);
+                video.addEventListener('error', resolve);
+            });
+        })
+    ]).then(() => {
+        // Ocultar la pantalla de carga con una transición suave
+        setTimeout(() => {
+            loadingScreen.classList.add('hidden');
+            // Remover la pantalla de carga después de la transición
+            setTimeout(() => {
+                loadingScreen.remove();
+            }, 500);
+        }, 1000); // Esperar 1 segundo adicional para asegurar que todo esté listo
+    });
+});
