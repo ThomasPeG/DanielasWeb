@@ -42,9 +42,7 @@ body {
     left: 0;
     width: 100%;
     height: 100vh;
-    z-index: 1;
-    background: var(--dark-bg);
-    transition: background-color 0.3s ease; /* Agregamos transición suave */
+    z-index:1;
 }
 
 #hero-video {
@@ -320,8 +318,9 @@ nav a:hover {
     background: var(--dark-bg);
     z-index: 4;
     margin-top: 100vh;
-    padding: 4rem 2rem;
+    padding: 12rem 2rem;
     visibility: visible;
+    background: linear-gradient(0deg,rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0.5) 95%, rgba(0, 0, 0, 0.1) 100%);
 }
 
 .mixed-grid {
@@ -414,7 +413,7 @@ nav a:hover {
     height: 100vh;
     overflow: hidden;
     background: var(--dark-bg);
-    z-index: 4;
+    z-index: 1;
 }
 
 .full-width-image {
@@ -427,8 +426,31 @@ nav a:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: blur(0);
-    transition: filter 0.5s ease;
+}
+
+@media (max-width: 768px) {
+    .full-width-section {
+        height: 100vh; /* Mantiene la altura completa */
+    }
+    
+    .full-width-image {
+        height: 100%;
+        width: 100%;
+    }
+    
+    .full-width-image img {
+        height: 100%;
+        width: auto; /* Permite que el ancho se ajuste automáticamente */
+        max-width: none; /* Elimina el límite de ancho máximo */
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%); /* Centra la imagen horizontalmente */
+        object-fit: cover;
+    }
+    .stitch-title{
+        position: absolute;
+        bottom: 12% !important;
+    }
 }
 
 .full-width-image::after {
@@ -439,8 +461,6 @@ nav a:hover {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0);
-    transition: background 0.9s ease;
-    pointer-events: none;
 }
 
 .full-width-image.darkening::after {
@@ -489,11 +509,11 @@ nav a:hover {
 
 .stitch-title {
     position: absolute;
-    bottom: 0%;
+    bottom: -5%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Bangers', cursive;
-    font-size: 15vw;
+    font-size: 13vw;
     color: rgba(180, 180, 180, 0.103);
     text-shadow: 
         3px 3px 0 #00000071,
@@ -511,7 +531,8 @@ nav a:hover {
 /* Spacer y Slider Section */
 .spacer {
     height: 40vh;
-    background: var(--dark-bg);
+    background: var(--dark-bg) !important;
+    z-index: 3;
 }
 
 /* Slider Section con efecto cine */
@@ -526,19 +547,6 @@ nav a:hover {
     z-index: 5;
 }
 
-.slider-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    box-shadow: 
-        inset 0 0 100px rgba(0, 0, 0, 0.8),
-        inset 0 0 100px rgba(0, 0, 0, 0.8);
-    pointer-events: none;
-    z-index: 6;
-}
 
 .slider-container {
     position: relative;
@@ -668,3 +676,189 @@ nav a:hover {
         transform: translateY(-10px);
     }
 }
+
+/* Studio Section */
+/* Estilos para la sección de estudio */
+.studio-section {
+    position: relative;
+    min-height: 100vh;
+    background: var(--dark-bg);
+    padding: 4rem 2rem;
+    overflow: hidden;
+    z-index: 3;
+}
+
+.studio-title {
+    position: relative;
+    text-align: center;
+    color: white;
+    margin-bottom: 6rem;
+    width: 100%;
+}
+
+.studio-title h1 {
+    font-size: 15rem;
+    line-height: 1;
+    margin: 0;
+    padding: 2rem;
+    white-space: nowrap;
+    color: white;
+}
+
+.studio-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.studio-image {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 15px;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.studio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    z-index: 4;
+}
+
+.studio-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .studio-title h1 {
+        font-size: 8rem;
+        padding: 1rem;
+    }
+
+    .studio-content {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .studio-section {
+        padding: 2rem 1rem;
+    }
+}
+.studio-title h2 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.studio-title p {
+    font-size: 1.5rem;
+    opacity: 0.8;
+}
+
+.studio-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.studio-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.studio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.studio-image:hover img {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .studio-content {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .studio-title h2 {
+        font-size: 3rem;
+    }
+}
+/* Video Full Section */
+.video-full-section {
+    position: relative;
+    height: 90vh;
+    z-index: -1;
+    opacity: 0;
+    background-color: black;
+    overflow: hidden;
+}
+
+.video-full-section video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .video-full-section {
+        max-width: 100%;
+        object-fit: cover;
+    }
+}
+
+.video-full-section .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Ajustamos el z-index de otras secciones para que funcione correctamente */
+.video-section {
+    z-index: 1;
+}
+
+.home-section {
+    position: relative;
+    z-index: 2;
+    background: var(--dark-bg);
+}
+
+.full-width-section {
+    position: relative;
+    z-index: 3;
+    background: var(--dark-bg);
+}
+
+.slider-section {
+    position: relative;
+    z-index: 4;
+    background: var(--dark-bg);
+}
+
+.studio-section {
+    position: relative;
+    z-index: 5;
+    background: var(--dark-bg);
+}
+

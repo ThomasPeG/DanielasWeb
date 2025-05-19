@@ -6,12 +6,13 @@ gsap.to('.video-section', {
     scrollTrigger: {
         trigger: '#app',
         start: 'top center',
-        end: 'top top',
-        scrub: true
+        end: '90% top',
+        scrub: 1,
     },
+    scale: 1.2,
     opacity: 0,
-    backgroundColor: 'black', // Agregamos un fondo negro
-    scale: 1.2
+    display: 'none',
+    backgroundColor: 'black'
 });
 
 // Animación para el indicador de scroll
@@ -46,21 +47,13 @@ gsap.utils.toArray('.grid-item').forEach(item => {
     gsap.to(item, {
         scrollTrigger: {
             trigger: item,
-            start: "top bottom",
-            end: "top -150%", // Aumentamos significativamente el punto final
-            scrub: 2, // Hacemos el scrub más suave
-            onUpdate: (self) => {
-                const progress = self.progress;
-                if (progress > 0.85) { // Ajustamos el punto de activación
-                    item.classList.add('darkening');
-                } else {
-                    item.classList.remove('darkening');
-                }
-            }
+            start: "top top",
+            end: "100% top", // Aumentamos significativamente el punto final
+            scrub: 1, // Hacemos el scrub más suave
+            
         },
         opacity: 0,
-        y: -100, // Aumentamos la distancia de desplazamiento
-        duration: 2 // Aumentamos la duración
+        scale: 1.5,
     });
 });
 
@@ -83,14 +76,14 @@ gsap.utils.toArray('.grid-item').forEach(item => {
 gsap.to('.full-width-image', {
     scrollTrigger: {
         trigger: '.full-width-section',
-        start: "top bottom",
-        end: "top -150%",
-        scrub: 2,
+        start: "top top",
+        end: "100% top",
+        scrub: true,
+        pin: true,
+        pinSpacing: false,
         
     },
-    opacity: 1,
-    scale: 1.1,
-    duration: 2,
+    opacity: 0,
     backgroundColor: 'black'
 });
 
@@ -100,28 +93,13 @@ gsap.from('.stitch-title', {
         trigger: '.full-width-section',
         start: "top center",
         end: "top top",
-        scrub: 1
+        scrub: 1,
     },
-    y: 100,
     opacity: 0,
     scale: 0.5
 });
 
 // Animación para el slider
-gsap.to('.slider-container', {
-    scrollTrigger: {
-        trigger: '.slider-section',
-        start: 'top center',
-        end: 'top 20%',
-        scrub: 1,
-        onEnter: () => {
-            document.querySelector('.slider-container').classList.add('visible');
-        },
-        onLeaveBack: () => {
-            document.querySelector('.slider-container').classList.remove('visible');
-        }
-    }
-});
 
 // Funcionalidad del slider
 let currentSlide = 0;
@@ -144,26 +122,87 @@ prevBtn?.addEventListener('click', () => {
     updateSlider();
 });
 
-// Animación para el nuevo indicador de scroll
-gsap.to('.scroll-indicator-section', {
+
+
+
+// Animación para el título del estudio
+gsap.fromTo('.studio-title h1', 
+    {
+        fontSize: '20rem',
+        filter: 'blur(5px)',
+        opacity: 0
+    },
+    {
+        scrollTrigger: {
+            trigger: '.studio-section',
+            start: 'top center',
+            end: 'center center',
+            scrub: 1,
+            toggleActions: 'play none none reverse'
+        },
+        fontSize: '2rem',
+        filter: 'blur(0px)',
+        opacity: 1,
+        duration: 1
+    }
+);
+
+// Animación responsive para móviles
+gsap.fromTo('.studio-title h1', 
+    {
+        fontSize: '8rem',
+        filter: 'blur(5px)',
+        opacity: 0
+    },
+    {
+        scrollTrigger: {
+            trigger: '.studio-section',
+            start: 'top center',
+            end: 'center center',
+            scrub: 1,
+            toggleActions: 'play none none reverse',
+            markers: false,
+            // Solo se activa en móviles
+            media: '(max-width: 768px)'
+        },
+        fontSize: '2rem',
+        filter: 'blur(0px)',
+        opacity: 1,
+        duration: 1
+    }
+);
+gsap.fromTo('.studio-image',
+    {
+        scale: 1.2,
+        filter: 'blur(5px)', 
+        opacity:0
+    },{
+        scrollTrigger: {
+            trigger: '.studio-image',
+            start: 'top center',
+            end: 'center 50%',
+            scrub: 2,
+            toggleActions: 'play none none reverse',
+            markers: false,
+        },
+        fontSize: '2rem',
+        filter: 'blur(0px)',
+        opacity: 1,
+        duration: 1,
+        scale: 1
+    }
+);
+
+// Animación para video-full-section
+gsap.to('.video-full-section', {
     scrollTrigger: {
-        trigger: '.full-width-section',
+        trigger: '.slider-section',
         start: 'bottom center',
         end: 'bottom top',
-        scrub: 1,
-        onUpdate: (self) => {
-            const progress = self.progress;
-            const section = document.querySelector('.scroll-indicator-section');
-            const text = section.querySelector('span');
-            const arrow = section.querySelector('.arrow-down');
-            
-            // Reducir altura y tamaño de texto gradualmente
-            section.style.height = `${50 - (progress * 30)}vh`;
-            text.style.fontSize = `${3 - (progress * 1.8)}rem`;
-            arrow.style.fontSize = `${4 - (progress * 2)}rem`;
-        }
-    },
-    opacity: 1,
-    y: 0,
-    duration: 1
+        scrub: true,
+        zIndex: 10,
+        opacity: 1,
+    }
 });
+
+
