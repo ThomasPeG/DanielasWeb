@@ -12,43 +12,34 @@
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script> 
 </head>
 <body>
-    <div id="loading-screen" class="loading-screen">
-        <div class="loading-content">
-            <div class="stitch-loader">
-                <svg class="stitch-icon" viewBox="0 0 100 100">
-                    <path d="M50 15c-19.33 0-35 15.67-35 35s15.67 35 35 35 35-15.67 35-35S69.33 15 50 15zm0 60c-13.79 0-25-11.21-25-25s11.21-25 25-25 25 11.21 25 25-11.21 25-25 25z"/>
-                    <circle class="stitch-eye left" cx="35" cy="45" r="5"/>
-                    <circle class="stitch-eye right" cx="65" cy="45" r="5"/>
-                    <path class="stitch-nose" d="M50 55c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
-                </svg>
-            </div>
-            <div class="loading-text">Cargando...</div>
-        </div>
-    </div>
     <section id="video-hero" class="video-section">
         <video id="hero-video" autoplay muted loop playsinline preload="auto">
             <source src="assets/stitch/v1-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
             <source src="assets/stitch/v1.mp4" type="video/mp4" >
         </video>
         <div class="hero-title">
-            <span class="letter">N</span>
-            <span class="letter">I</span>
-            <span class="letter">K</span>
-            <span class="letter">O</span>
-            <span class="letter">L</span>
-            <span class="letter">&nbsp;</span>
-            <span class="letter">D</span>
-            <span class="letter">A</span>
-            <span class="letter">N</span>
-            <span class="letter">I</span>
-            <span class="letter">E</span>
-            <span class="letter">L</span>
-            <span class="letter">A</span>
+            <div class="name-container">
+                <span class="letter">D</span>
+                <span class="letter">A</span>
+                <span class="letter">N</span>
+                <span class="letter">I</span>
+                <span class="letter">E</span>
+                <span class="letter">L</span>
+                <span class="letter">A</span>
+            </div>
+            <div class="surname-container">
+                <span class="letter">A</span>
+                <span class="letter">L</span>
+                <span class="letter">V</span>
+                <span class="letter">A</span>
+                <span class="letter">R</span>
+                <span class="letter">E</span>
+                <span class="letter">Z</span>
+            </div>
         </div>
         <div class="scroll-indicator">
             <span>Scroll para continuar</span>
             <div class="arrow">↓</div>
-        </div>
     </section>
 
     <div id="home" class="home-section">
@@ -94,43 +85,43 @@
             <div class="slider-track">
                 
                 <div class="slide">
-                    <img src="assets/stitch/11.jpg" alt="Stitch Slide">
+                    <img src="assets/stitch/11.jpg" alt="Stitch Slide" loading="lazy">
                 </div>
                 <div class="slide">
-                    <img src="assets/stitch/12.jpg" alt="Stitch Slide">
+                    <img src="assets/stitch/12.jpg" alt="Stitch Slide" loading="lazy">
                 </div>
                 <div class="slide">
-                    <img src="assets/stitch/13.jpg" alt="Stitch Slide">
+                    <img src="assets/stitch/13.jpg" alt="Stitch Slide" loading="lazy">
                 </div>
                 <div class="slide">
-                    <img src="assets/stitch/14.jpg" alt="Stitch Slide">
+                    <img src="assets/stitch/14.jpg" alt="Stitch Slide" loading="lazy">
                 </div>
                 <div class="slide">
-                    <img src="assets/stitch/15.jpg" alt="Stitch Slide">
+                    <img src="assets/stitch/15.jpg" alt="Stitch Slide" loading="lazy">
                 </div>
                 <div class="slide">
-                    <img src="assets/stitch/16.jpg" alt="Stitch Slide">
+                    <img src="assets/stitch/16.jpg" alt="Stitch Slide" loading="lazy">
                 </div>
                 <div class="slide">
-                    <img src="assets/stitch/17.jpg" alt="Stitch Slide">
+                    <img src="assets/stitch/17.jpg" alt="Stitch Slide" loading="lazy">
                 </div>
                 <div class="slide">
-                    <img src="assets/stitch/19.jpg" alt="Stitch Slide">
+                    <img src="assets/stitch/19.jpg" alt="Stitch Slide" loading="lazy">
                 </div>
                 <div class="slide">
-                    <img src="assets/stitch/20.jpg" alt="Stitch Slide">
+                    <img src="assets/stitch/20.jpg" alt="Stitch Slide" loading="lazy">
                 </div>
                 <div class="slide">
-                    <img src="assets/stitch/21.jpg" alt="Stitch Slide">
+                    <img src="assets/stitch/21.jpg" alt="Stitch Slide" loading="lazy">
                 </div>
                 <div class="slide">
-                    <img src="assets/stitch/22.jpg" alt="Stitch Slide">
+                    <img src="assets/stitch/22.jpg" alt="Stitch Slide" loading="lazy">
                 </div>
                 <div class="slide">
-                    <img src="assets/stitch/25.jpg" alt="Stitch Slide">
+                    <img src="assets/stitch/25.jpg" alt="Stitch Slide" loading="lazy">
                 </div>
                 <div class="slide">
-                    <img src="assets/stitch/24.jpg" alt="Stitch Slide">
+                    <img src="assets/stitch/24.jpg" alt="Stitch Slide" loading="lazy">
                 </div>
                 
             </div>
@@ -141,7 +132,7 @@
 
 
     <section class="video-full-section">
-        <video class="full-video" autoplay muted loop playsinline preload="auto">
+        <video class="full-video" autoplay muted loop playsinline preload="none">
             <source src="assets/stitch/v2-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
             <source src="assets/stitch/v2.mp4" type="video/mp4">
         </video>
@@ -152,147 +143,151 @@
         <h2 class="collection-title">El Resto De Mi Colección</h2>
         <div class="collection-grid">
             <div class="collection-item">
-                <img src="assets/stitch/7.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/7.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
             <div class="collection-item">
-                <img src="assets/stitch/8.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/8.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
             <div class="collection-item">
-                <img src="assets/stitch/9.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/9.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
             <div class="collection-item">
-                <img src="assets/stitch/75.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/75.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
             <div class="collection-item">
-                <img src="assets/stitch/70.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/70.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
             <div class="collection-item">
-                <img src="assets/stitch/72.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/72.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
             <div class="collection-item">
-                <img src="assets/stitch/73.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/73.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
             <div class="collection-item">
-                <img src="assets/stitch/74.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/74.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
             <div class="collection-item">
-                <img src="assets/stitch/76.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/76.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
             <div class="collection-item">
-                <img src="assets/stitch/77.jpg" alt="Stitch Collection" loading="lazy">
-            </div>
-
-            <div class="collection-item">
-                <img src="assets/stitch/78.jpg" alt="Stitch Collection" loading="lazy">
-            </div>
-            <div class="collection-item">
-                <img src="assets/stitch/79.jpg" alt="Stitch Collection" loading="lazy">
-            </div>
-            <div class="collection-item">
-                <img src="assets/stitch/80.jpg" alt="Stitch Collection" loading="lazy">
-            </div>
-            <div class="collection-item">
-                <img src="assets/stitch/81.jpg" alt="Stitch Collection" loading="lazy">
-            </div>
-            <div class="collection-item">
-                <img src="assets/stitch/82.jpg" alt="Stitch Collection" loading="lazy">
-            </div>
-            <div class="collection-item">
-                <img src="assets/stitch/83.jpg" alt="Stitch Collection" loading="lazy">
-            </div>
-            <div class="collection-item">
-                <img src="assets/stitch/84.jpg" alt="Stitch Collection" loading="lazy">
-            </div>
-            <div class="collection-item">
-                <img src="assets/stitch/85.jpg" alt="Stitch Collection" loading="lazy">
-            </div>
-            <div class="collection-item">
-                <img src="assets/stitch/86.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/77.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
 
             <div class="collection-item">
-                <img src="assets/stitch/87.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/78.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
             <div class="collection-item">
-                <img src="assets/stitch/88.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/79.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
             <div class="collection-item">
-                <img src="assets/stitch/89.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/80.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
             <div class="collection-item">
-                <img src="assets/stitch/90.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/81.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
             <div class="collection-item">
-                <img src="assets/stitch/91.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/82.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
             <div class="collection-item">
-                <img src="assets/stitch/65.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/83.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
             <div class="collection-item">
-                <img src="assets/stitch/66.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/84.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
             <div class="collection-item">
-                <img src="assets/stitch/67.jpg" alt="Stitch Collection" loading="lazy">
-            </div>
-
-            <div class="collection-item">
-                <img src="assets/stitch/59.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/85.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
             <div class="collection-item">
-                <img src="assets/stitch/68.jpg" alt="Stitch Collection" loading="lazy">
-            </div>
-            <div class="collection-item">
-                <img src="assets/stitch/69.jpg" alt="Stitch Collection" loading="lazy">
-            </div>
-            <div class="collection-item">
-                <img src="assets/stitch/51.jpg" alt="Stitch Collection" loading="lazy">
-            </div>
-            <div class="collection-item">
-                <img src="assets/stitch/52.jpg" alt="Stitch Collection" loading="lazy">
-            </div>
-            <div class="collection-item">
-                <img src="assets/stitch/53.jpg" alt="Stitch Collection" loading="lazy">
-            </div>
-            <div class="collection-item">
-                <img src="assets/stitch/54.jpg" alt="Stitch Collection" loading="lazy">
-            </div>
-            <div class="collection-item">
-                <img src="assets/stitch/55.jpg" alt="Stitch Collection" loading="lazy">
-            </div>
-            <div class="collection-item">
-                <img src="assets/stitch/56.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/86.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
 
             <div class="collection-item">
-                <img src="assets/stitch/57.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/87.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
             <div class="collection-item">
-                <img src="assets/stitch/58.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/88.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
             <div class="collection-item">
-                <img src="assets/stitch/50.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/89.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
             <div class="collection-item">
-                <img src="assets/stitch/3.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/90.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
             <div class="collection-item">
-                <img src="assets/stitch/4.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/91.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
             <div class="collection-item">
-                <img src="assets/stitch/5.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/65.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
             <div class="collection-item">
-                <img src="assets/stitch/6.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/66.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
             <div class="collection-item">
-                <img src="assets/stitch/44.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/67.jpg" alt="Stitch Collection" loading="lazy" >
+            </div>
+
+            <div class="collection-item">
+                <img src="assets/stitch/59.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
             <div class="collection-item">
-                <img src="assets/stitch/45.jpg" alt="Stitch Collection" loading="lazy">
+                <img src="assets/stitch/68.jpg" alt="Stitch Collection" loading="lazy" >
+            </div>
+            <div class="collection-item">
+                <img src="assets/stitch/69.jpg" alt="Stitch Collection" loading="lazy" >
+            </div>
+            <div class="collection-item">
+                <img src="assets/stitch/51.jpg" alt="Stitch Collection" loading="lazy" >
+            </div>
+            <div class="collection-item">
+                <img src="assets/stitch/52.jpg" alt="Stitch Collection" loading="lazy" >
+            </div>
+            <div class="collection-item">
+                <img src="assets/stitch/53.jpg" alt="Stitch Collection" loading="lazy" >
+            </div>
+            <div class="collection-item">
+                <img src="assets/stitch/54.jpg" alt="Stitch Collection" loading="lazy" >
+            </div>
+            <div class="collection-item">
+                <img src="assets/stitch/55.jpg" alt="Stitch Collection" loading="lazy" >
+            </div>
+            <div class="collection-item">
+                <img src="assets/stitch/56.jpg" alt="Stitch Collection" loading="lazy" >
+            </div>
+
+            <div class="collection-item">
+                <img src="assets/stitch/57.jpg" alt="Stitch Collection" loading="lazy" >
+            </div>
+            <div class="collection-item">
+                <img src="assets/stitch/58.jpg" alt="Stitch Collection" loading="lazy" >
+            </div>
+            <div class="collection-item">
+                <img src="assets/stitch/50.jpg" alt="Stitch Collection" loading="lazy" >
+            </div>
+            <div class="collection-item">
+                <img src="assets/stitch/3.jpg" alt="Stitch Collection" loading="lazy" >
+            </div>
+            <div class="collection-item">
+                <img src="assets/stitch/4.jpg" alt="Stitch Collection" loading="lazy" >
+            </div>
+            <div class="collection-item">
+                <img src="assets/stitch/5.jpg" alt="Stitch Collection" loading="lazy" >
+            </div>
+            <div class="collection-item">
+                <img src="assets/stitch/6.jpg" alt="Stitch Collection" loading="lazy" >
+            </div>
+            <div class="collection-item">
+                <img src="assets/stitch/44.jpg" alt="Stitch Collection" loading="lazy" >
+            </div>
+            <div class="collection-item">
+                <img src="assets/stitch/45.jpg" alt="Stitch Collection" loading="lazy" >
             </div>
         </div>
         <div class="spacer"></div>
 
+
+    <div class="spacer"></div>
+    
+    <div id="stitch-collection"></div>
 
     <section class="video-audio-section">
         <video class="video-with-audio" autoplay playsinline loop preload="none">
@@ -314,42 +309,41 @@
         </div>
         <div class="studio-content">
             <div class="studio-image">
-                <img src="assets/stitch/37.jpg" alt="Studio Process" loading="lazy">
+                <img src="assets/stitch/37.jpg" alt="Studio Process" loading="lazy" >
             </div>
             <div class="studio-image">
-                <img src="assets/stitch/38.jpg" alt="Studio Process" loading="lazy">
+                <img src="assets/stitch/38.jpg" alt="Studio Process" loading="lazy" >
             </div>
             <div class="studio-image">
-                <img src="assets/stitch/39.jpg" alt="Studio Process" loading="lazy">
+                <img src="assets/stitch/39.jpg" alt="Studio Process" loading="lazy" >
             </div>
             <div class="studio-image">
-                <img src="assets/stitch/40.jpg" alt="Studio Process" loading="lazy">
+                <img src="assets/stitch/40.jpg" alt="Studio Process" loading="lazy" >
             </div>
             <div class="studio-image">
-                <img src="assets/stitch/42.jpg" alt="Studio Process" loading="lazy">
+                <img src="assets/stitch/42.jpg" alt="Studio Process" loading="lazy" >
             </div>
             <div class="studio-image">
-                <img src="assets/stitch/41.jpg" alt="Studio Process" loading="lazy">
+                <img src="assets/stitch/41.jpg" alt="Studio Process" loading="lazy" >
             </div>
             <div class="studio-image">
-                <img src="assets/stitch/33.jpg" alt="Studio Process" loading="lazy">
+                <img src="assets/stitch/33.jpg" alt="Studio Process" loading="lazy" >
             </div>
             <div class="studio-image">
-                <img src="assets/stitch/34.jpg" alt="Studio Process" loading="lazy">
+                <img src="assets/stitch/34.jpg" alt="Studio Process" loading="lazy" >
             </div>
         </div>
     </section>
     <div class="spacer"></div>
 
     <section class="video-message-section">
-        <video class="message-video" autoplay muted loop playsinline preload="none">
+        <video class="message-video" autoplay muted loop playsinline preload="auto">
             <source src="assets/kory.mp4" type="video/mp4">
         </video>
     </section>
 
     <script src="js/lenis-config.js"></script>
     <script src="js/animations.js"></script>
-    <script src="js/slider.js"></script>
     <script src="js/main.js"></script>
 
     <footer class="site-footer">
@@ -365,3 +359,7 @@
     </footer>
 </body>
 </html>
+<div id="scroll-loading" class="scroll-loading hidden">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">Cargando Contenido...</div>
+</div>

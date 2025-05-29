@@ -80,35 +80,53 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Función para manejar la pantalla de carga
-document.addEventListener('DOMContentLoaded', function() {
-    const loadingScreen = document.getElementById('loading-screen');
-    
-    // Esperar a que todas las imágenes y videos se carguen
-    Promise.all([
-        // Esperar a que se carguen todas las imágenes
-        ...Array.from(document.images).map(img => {
-            if (img.complete) return Promise.resolve();
-            return new Promise(resolve => {
-                img.addEventListener('load', resolve);
-                img.addEventListener('error', resolve); // Manejar errores también
-            });
-        }),
-        // Esperar a que se carguen todos los videos
-        ...Array.from(document.getElementsByTagName('video')).map(video => {
-            if (video.readyState >= 3) return Promise.resolve();
-            return new Promise(resolve => {
-                video.addEventListener('canplay', resolve);
-                video.addEventListener('error', resolve);
-            });
-        })
-    ]).then(() => {
-        // Ocultar la pantalla de carga con una transición suave
-        setTimeout(() => {
-            loadingScreen.classList.add('hidden');
-            // Remover la pantalla de carga después de la transición
-            setTimeout(() => {
-                loadingScreen.remove();
-            }, 500);
-        }, 1000); // Esperar 1 segundo adicional para asegurar que todo esté listo
+
+// Función para controlar el scroll basado en la carga de imágenes
+function initializeScrollControl() {
+    let isLoading = false;
+    const scrollLoading = document.getElementById('scroll-loading');
+    const loadingThreshold = 1000; // píxeles antes de llegar al contenido
+
+    function checkImagesInRange() {
+        const scrollPosition = window.scrollY + window.innerHeight;
+        const images = Array.from(document.querySelectorAll('img[loading="lazy"]'));
+        
+        const imagesInRange = images.filter(img => {
+            const rect = img.getBoundingClientRect();
+            const absoluteTop = rect.top + window.scrollY;
+            return absoluteTop <= scrollPosition + loadingThreshold;
+        });
+
+        return imagesInRange.every(img => img.complete);
+    }
+
+    function handleScroll() {
+        if (isLoading) return;
+
+        const imagesLoaded = checkImagesInRange();
+        if (!imagesLoaded) {
+            isLoading = true;
+            scrollLoading.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+
+            const checkInterval = setInterval(() => {
+                if (checkImagesInRange()) {
+                    isLoading = false;
+                    scrollLoading.classList.add('hidden');
+                    document.body.style.overflow = '';
+                    clearInterval(checkInterval);
+                }
+            }, 100);
+        }
+    }
+
+    // Throttle para mejorar el rendimiento
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+        if (scrollTimeout) clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(handleScroll, 150);
     });
-});
+}
+
+// Inicializar el control de scroll cuando se carga el documento
+document.addEventListener('DOMContentLoaded', initializeScrollControl);
