@@ -1475,3 +1475,22 @@ nav a:hover {
     }
 }
 
+.image-placeholder {
+    background-color: #f0f0f0;
+    background-image: url('assets/placeholder.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+img.loaded {
+    opacity: 1;
+}

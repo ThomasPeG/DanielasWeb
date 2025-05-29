@@ -3,6 +3,7 @@ window.onload = function() {
     //alert("💙 Esta página está dedicada exclusivamente a Nikol Daniela Alvarez 💙");
     initializeMainContent();
     animateTitle();
+    handleImageLoading();
 };
 
 function initializeMainContent() {
@@ -79,54 +80,32 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Función para manejar la pantalla de carga
-
-// Función para controlar el scroll basado en la carga de imágenes
-function initializeScrollControl() {
-    let isLoading = false;
-    const scrollLoading = document.getElementById('scroll-loading');
-    const loadingThreshold = 1000; // píxeles antes de llegar al contenido
-
-    function checkImagesInRange() {
-        const scrollPosition = window.scrollY + window.innerHeight;
-        const images = Array.from(document.querySelectorAll('img[loading="lazy"]'));
+// Función para manejar la carga de imágenes
+function handleImageLoading() {
+    const images = document.querySelectorAll('img');
+    
+    images.forEach(img => {
+        // Agregar clase placeholder
+        img.parentElement.classList.add('image-placeholder');
         
-        const imagesInRange = images.filter(img => {
-            const rect = img.getBoundingClientRect();
-            const absoluteTop = rect.top + window.scrollY;
-            return absoluteTop <= scrollPosition + loadingThreshold;
-        });
-
-        return imagesInRange.every(img => img.complete);
-    }
-
-    function handleScroll() {
-        if (isLoading) return;
-
-        const imagesLoaded = checkImagesInRange();
-        if (!imagesLoaded) {
-            isLoading = true;
-            scrollLoading.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-
-            const checkInterval = setInterval(() => {
-                if (checkImagesInRange()) {
-                    isLoading = false;
-                    scrollLoading.classList.add('hidden');
-                    document.body.style.overflow = '';
-                    clearInterval(checkInterval);
-                }
-            }, 100);
+        // Si la imagen ya está cargada
+        if (img.complete) {
+            imageLoaded(img);
+        } else {
+            // Si la imagen aún no está cargada
+            img.addEventListener('load', () => imageLoaded(img));
+            img.addEventListener('error', () => handleImageError(img));
         }
-    }
-
-    // Throttle para mejorar el rendimiento
-    let scrollTimeout;
-    window.addEventListener('scroll', () => {
-        if (scrollTimeout) clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(handleScroll, 150);
     });
 }
 
-// Inicializar el control de scroll cuando se carga el documento
-document.addEventListener('DOMContentLoaded', initializeScrollControl);
+function imageLoaded(img) {
+    img.classList.add('loaded');
+    img.parentElement.classList.remove('image-placeholder');
+}
+
+function handleImageError(img) {
+    // Mantener el placeholder si la imagen falla al cargar
+    img.parentElement.classList.add('image-placeholder');
+    console.log('Error loading image:', img.src);
+}
